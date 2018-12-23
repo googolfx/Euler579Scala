@@ -25,7 +25,7 @@ object Euler579Solve extends App {
     t
   }
      
-  def ¡î(x:Int):Int = {
+  def âˆš(x:Int):Int = {
     sqrt( x.toFloat + 0.9 ).toInt
   }
   
@@ -94,8 +94,8 @@ object Euler579Solve extends App {
     for(_case <- 0.to(1))
       for(a <- -n to n if a*a <= 4*n; b <- -n to n if a*a+b*b <= 4*n; c <- -n to n if a*a+b*b+c*c <= 4*n) {
         
-        val L0 = - ¡î(5*n - a*a - b*b - c*c)
-        val R0 = ¡î(5*n - a*a - b*b - c*c)
+        val L0 = - âˆš(5*n - a*a - b*b - c*c)
+        val R0 = âˆš(5*n - a*a - b*b - c*c)
         val L1 = max(L0, -n)
         val R1 = max(R0, n)
    
@@ -110,11 +110,11 @@ object Euler579Solve extends App {
           val t1 = max(_t1, 0)
           val t2 = max(_t2, 0)
           
-          val t = ¡î( if(_case==0) t2 else t1 ) + 1
+          val t = âˆš( if(_case==0) t2 else t1 ) + 1
           val L3 = max(L2, if(_case==0) -t else a-t)
           val R3 = max(R2, if(_case==0) t else a+t)
-          val Lj = (if(_case==0) a else 0) - ¡î( if(_case==0) t1 else t2 ) + 1
-          val Rj = (if(_case==0) a else 0) + ¡î( if(_case==0) t1 else t2 ) - 1
+          val Lj = (if(_case==0) a else 0) - âˆš( if(_case==0) t1 else t2 ) + 1
+          val Rj = (if(_case==0) a else 0) + âˆš( if(_case==0) t1 else t2 ) - 1
           
           for(d <- L3 to R3+1)
             addTuple(n, _case, a, b, c, d)
